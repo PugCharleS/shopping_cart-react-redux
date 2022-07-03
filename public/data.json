@@ -1,0 +1,34 @@
+[
+  {
+    "item_name" : "Hydroconquest",
+    "short_description" : "Longines",
+    "quantity" : 10,
+    "price_without_tax" : 42760,
+    "tax" : 6841.6,
+    "shipping_fee" : 427.6 
+  },
+  {
+    "item_name" : "T-Race Motogp",
+    "short_description" : "Tissot",
+    "quantity" : 12,
+    "price_without_tax" : 13685,
+    "tax" : 2189.6,
+    "shipping_fee" : 136.8
+  },
+  {
+    "item_name" : "Bolt 68",
+    "short_description" : "Bomberg",
+    "quantity" : 10,
+    "price_without_tax" : 22015,
+    "tax" : 3522.4,
+    "shipping_fee" : 220.1
+  },
+  {
+    "item_name" : "G-Timeless",
+    "short_description" : "Gucci",
+    "quantity" : 2,
+    "price_without_tax" : 36350,
+    "tax" : 5816,
+    "shipping_fee" : 363.5
+  }
+]
