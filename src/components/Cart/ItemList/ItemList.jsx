@@ -1,20 +1,17 @@
-import { useEffect, useState } from "react";
 import Item from "./Item/Item";
+import { useContext } from "react";
+import { Context } from "../../../context/context";
 
 const ItemList = () => {
-  const [data, setData] = useState();
-
-  useEffect(() => {
-    fetch("data.json")
-      .then((response) => response.json())
-      .then((data) => setData(data));
-  }, []);
+  const { cart } = useContext(Context);
 
   return (
     <div className="item-list-container">
-      {data.map((product, i) => (
-        <Item key={i} product={product} />
-      ))}
+      {cart?.length > 0 ? (
+        cart.map((product) => <Item key={product.id} product={product} />)
+      ) : (
+        <h1>Empty Cart</h1>
+      )}
     </div>
   );
 };

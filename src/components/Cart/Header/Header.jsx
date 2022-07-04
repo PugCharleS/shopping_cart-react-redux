@@ -1,4 +1,9 @@
+import { useContext } from "react";
+import { Context } from "../../../context/context";
+
 const Header = () => {
+  const { emptyCart } = useContext(Context);
+
   return (
     <header className="header">
       <div className="header-summary">
@@ -29,7 +34,9 @@ const Header = () => {
         </svg>
         <div className="orderSummary">Order summary</div>
       </div>
-      <button className="removeAll">Remove all</button>
+      <button className="removeAll" onClick={emptyCart}>
+        Remove all
+      </button>
     </header>
   );
 };

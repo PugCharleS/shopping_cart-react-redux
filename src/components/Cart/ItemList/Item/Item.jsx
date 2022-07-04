@@ -1,40 +1,68 @@
-import React from "react";
+import { useContext } from "react";
+import { Context } from "../../../../context/context";
+import useCounter from "../../useCount/useCounter";
 
 const Item = ({ product }) => {
-  const { item_name, short_description, price_without_tax } = product;
+  const { id, item_name, short_description, price_without_tax } = product;
+  const { deleteItem } = useContext(Context);
+
+  const onDelete = (id) => {
+    deleteItem(id);
+  };
 
   return (
-    <div class="item-container">
+    <div className="item-container">
       <div className="container-product">
-        <div class="item-icon"></div>
+        <div className="item-icon"></div>
         <div className="item-texts">
-          <div class="item-name">{item_name}</div>
-          <div class="item-short_description">{short_description}</div>
+          <div className="item-name">{item_name}</div>
+          <div className="item-short_description">{short_description}</div>
         </div>
       </div>
       <div className="container-price">
-        <Quantity />
-        <div class="item-price">${price_without_tax}</div>
-        <Trashcan />
+        <Quantity product={product} />
+        <div className="item-price">${price_without_tax}</div>
+        <Trashcan id={id} onDelete={onDelete} />
       </div>
     </div>
   );
 };
 
-const Quantity = () => {
+const Quantity = ({ product }) => {
+  const { counter, increment, decrement } = useCounter(1);
+  const { addItem, removeItem } = useContext(Context);
+
+  const onIncrement = () => {
+    if (product.numberOfUnits < product.quantity) {
+      increment();
+      addItem({ ...product, numberOfUnits: counter });
+    }
+  };
+
+  const onDecrement = () => {
+    if (product.numberOfUnits > 1) {
+      decrement();
+      removeItem({ ...product, numberOfUnits: counter });
+    }
+  };
+
   return (
-    <div class="item-quantity">
-      <button className="buttonIncDec">-</button>
-      <p className="counter">1</p>
-      <button className="buttonIncDec">+</button>
+    <div className="item-quantity">
+      <button className="buttonIncDec" onClick={onDecrement}>
+        -
+      </button>
+      <p className="counter">{counter}</p>
+      <button className="buttonIncDec" onClick={onIncrement}>
+        +
+      </button>
     </div>
   );
 };
 
-const Trashcan = () => {
+const Trashcan = ({ id, onDelete }) => {
   return (
     <div>
-      <button className="trash-btn">
+      <button className="trash-btn" onClick={() => onDelete(id)}>
         <svg
           id="Group_15"
           data-name="Group 15"

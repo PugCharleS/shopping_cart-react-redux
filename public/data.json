@@ -1,5 +1,6 @@
 [
   {
+    "id": 1,
     "item_name" : "Hydroconquest",
     "short_description" : "Longines",
     "quantity" : 10,
@@ -8,6 +9,7 @@
     "shipping_fee" : 427.6 
   },
   {
+    "id": 2,
     "item_name" : "T-Race Motogp",
     "short_description" : "Tissot",
     "quantity" : 12,
@@ -16,6 +18,7 @@
     "shipping_fee" : 136.8
   },
   {
+    "id": 3,
     "item_name" : "Bolt 68",
     "short_description" : "Bomberg",
     "quantity" : 10,
@@ -24,6 +27,7 @@
     "shipping_fee" : 220.1
   },
   {
+    "id": 4,
     "item_name" : "G-Timeless",
     "short_description" : "Gucci",
     "quantity" : 2,
